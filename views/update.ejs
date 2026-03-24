@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+       <h1>Update User</h1>
+
+    <form action="/update/<%=student._id%>" method="POST" enctype="multipart/form-data" >
+        <input type="text" name="name" placeholder="username..." value="<%= student.name %>"><br><br>
+        <input type="text" name="profession" placeholder="user profession..." value="<%= student.profession %>"><br><br>
+        <input type="number" name="age" placeholder="user age" value="<%= student.age %>"><br><br>
+        <input type="file" name="image" value="<%= student.image %>"><br><br>
+        <button>Update now</button>
+        <a href="/" class="home"><button type="button">go to home</button></a>
+    </form> 
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile App</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef2f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 20px;
+            color: #333;
+        }
+
+        .profile-container {
+            width: 80%;
+            max-width: 700px;
+            margin: 20px auto;
+        }
+
+        .profile-box {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+        }
+
+        .profile-box img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+            border: 3px solid #ddd;
+        }
+
+        .profile-info {
+            flex: 1;
+        }
+
+        .profile-info h2 {
+            margin: 0;
+            color: #222;
+        }
+
+        .profile-info p {
+            margin: 5px 0;
+            color: #666;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .actions button {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .edit-btn {
+            background: #3498db;
+            color: white;
+        }
+
+        .edit-btn:hover {
+            background: #2980b9;
+        }
+
+        .reset-btn {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .reset-btn:hover {
+            background: #c0392b;
+        }
+
+        .add-user {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .add-user button {
+            padding: 10px 20px;
+            background: #2ecc71;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .add-user button:hover {
+            background: #27ae60;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>User Profile Management</h1>
+
+    <div class="profile-container">
+
+        <% profile.forEach((user)=>{ %>
+            <div class="profile-box">
+
+                <img src="/upload/<%= user.image %>">
+                <div class="profile-info">
+                    <h2>Name : <%= user.name %></h2>
+                    <p><strong>Profession:</strong> <%= user.profession %></p>
+                    <p><strong>Age :</strong> <%= user.age %></p>
+                </div>
+
+                <div class="actions">
+                    <a href="/edit/<%= user._id %>">
+                        <button class="edit-btn">Edit</button>
+                    </a>
+
+                    <a href="/reset/<%= user._id %>">
+                        <button class="reset-btn">Reset</button>
+                    </a>
+                    <a href="/delete/<%= user._id %>">
+                        <button>X</button>
+                    </a>
+                </div>
+
+            </div>
+        <% }) %>
+
+    </div>
+
+    <div class="add-user">
+        <a href="/user">
+            <button>Add User</button>
+        </a>
+    </div>
+
+</body>
+</html>
